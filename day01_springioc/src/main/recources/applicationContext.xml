@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--注册Service-->
+   <bean id="accountDao" class="com.itheima.dao.impl.AccountDaoImpl"></bean>
+
+    <!--注册Dao-->
+    <bean id="accountService" class="com.itheima.service.impl.AccountServiceImpl"></bean>
+
+    <bean id="user" class="com.itheima.pojo.User">
+        <constructor-arg name="username" value="zs"></constructor-arg>
+
+        <property name="id" value="01"></property>
+
+        <property name="hobby">
+            <array>
+                <value>足球</value>
+                <value>篮球</value>
+            </array>
+        </property>
+
+        <property name="bankCards">
+            <list>
+                <value>642232433455468</value>
+                <value>642232433455468</value>
+            </list>
+        </property>
+
+        <property name="studyLevelSchool">
+            <map>
+                <entry key="小学" value="深圳中学"></entry>
+                <entry key="中学" value="深圳小学"></entry>
+            </map>
+        </property>
+        
+        <property name="friends">
+            <props>
+                <prop key="最好的">刘备</prop>
+                <prop key="最坏的">曹操</prop>
+            </props>
+        </property>
+
+        <property name="address" ref="address"></property>
+
+        <property name="sets">
+            <set>
+                <value>1</value>
+                <value>2</value>
+                <value>3</value>
+            </set>
+        </property>
+
+
+    </bean>
+
+    <bean id="address" class="com.itheima.pojo.Address">
+        <property name="name" value="中粮03"></property>
+        <property name="country" value="中国"/>
+        <property name="province" value="广东"/>
+    </bean>
+
+</beans>
